@@ -12,7 +12,7 @@
 #include <unistd.h>
 #include <errno.h>
 
-#define DEVFILE "/dev/devone"
+#define DEVFILE "/dev/devone0"
 
 int open_file(char *filename)
 {
