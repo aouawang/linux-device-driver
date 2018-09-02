@@ -34,7 +34,7 @@ void close_file(int fd)
 
 void read_file(int fd)
 {
-	unsigned char buf[8], *p;
+	unsigned char buf[10], *p;
 	ssize_t ret;
 
 	ret = read(fd, buf, sizeof(buf));
