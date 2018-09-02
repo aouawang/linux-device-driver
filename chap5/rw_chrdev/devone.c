@@ -26,6 +26,9 @@ struct devone_data {
 	rwlock_t lock;
 };	
 
+/*user space call: ret = ret = write(fd, &val, 1)
+ *                                  file buf  count
+ */
 ssize_t devone_write(struct file *filp, const char __user *buf, size_t count, loff_t *f_pos)
 {
 	struct devone_data *p = filp->private_data;
@@ -51,6 +54,9 @@ out:
 	return (retval);
 }
 
+/*user space call: ret = read(fd, buf, sizeof(buf))
+ *                           file buf  count
+ */
 ssize_t devone_read(struct file *filp, char __user *buf, size_t count, loff_t *f_pos)
 {
 	struct devone_data *p = filp->private_data;
