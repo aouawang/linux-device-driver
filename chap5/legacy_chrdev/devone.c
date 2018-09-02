@@ -9,6 +9,7 @@
 #include <linux/fs.h>
 #include <linux/cdev.h>
 #include <linux/sched.h>
+/*use macro to use pid for open or close*/
 #include <asm/current.h>
 #include <asm/uaccess.h>
 
@@ -17,7 +18,7 @@ MODULE_LICENSE("Dual BSD/GPL");
 #define DRIVER_NAME "devone"
 
 static unsigned int devone_major = 0;
-module_param(devone_major, uint, 0);
+module_param(devone_major, uint, 0); /* module param can adopt the second argc <EX>insmod ./sample.ko devone_major=261 */
 
 static int devone_open(struct inode *inode, struct file *file)
 {
